@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum BookingType {
+  NORMAL
+  TRAINING
+  EVENT
+  EXAM
+}
+
+// IVAO ATC rating scale, from applicant to senior controller.
+enum RatingLevel {
+  AS1
+  AS2
+  AS3
+  ADC
+  APC
+  ACC
+  SEC
+}
+
+model Booking {
+  id        Int         @id @default(autoincrement())
+  vid       String
+  rating    RatingLevel @default(AS1)
+  position  String
+  fromTime  DateTime
+  toTime    DateTime
+  type      BookingType @default(NORMAL)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  @@index([position])
+  @@index([vid])
+}

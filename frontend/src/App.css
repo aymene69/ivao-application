@@ -1,0 +1,607 @@
+:root {
+  --color-primary: #1a56b3;
+  --color-primary-dark: #123f87;
+  --color-primary-light: #eaf1fb;
+  --color-text: #1d2530;
+  --color-text-muted: #667085;
+  --color-border: #e2e5ea;
+  --color-bg: #f6f7f9;
+  --color-surface: #ffffff;
+  --color-danger: #c0342c;
+  --color-danger-light: #fbeceb;
+  --color-badge-training-bg: #fdf2d8;
+  --color-badge-training-fg: #8a6116;
+  --color-badge-training-border: #eecb7c;
+  --color-badge-event-bg: #e5f3ff;
+  --color-badge-event-fg: #185a9d;
+  --color-badge-event-border: #a9d2f5;
+  --color-badge-exam-bg: #fde3e1;
+  --color-badge-exam-fg: #a3271f;
+  --color-badge-exam-border: #f3a9a3;
+  --color-schedule-border: #a7c3ea;
+  --color-success: #16794c;
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.08);
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --color-primary: #5b9bf0;
+  --color-primary-dark: #7db2f5;
+  --color-primary-light: #17233a;
+  --color-text: #e6e9ee;
+  --color-text-muted: #93a0b0;
+  --color-border: #2b333e;
+  --color-bg: #10151c;
+  --color-surface: #171d26;
+  --color-danger: #f2887f;
+  --color-danger-light: #3a2220;
+  --color-badge-training-bg: #3a2f14;
+  --color-badge-training-fg: #f0c975;
+  --color-badge-training-border: #6b5423;
+  --color-badge-event-bg: #16283a;
+  --color-badge-event-fg: #82bdf5;
+  --color-badge-event-border: #2c4a68;
+  --color-badge-exam-bg: #3a1e1c;
+  --color-badge-exam-fg: #f5a39b;
+  --color-badge-exam-border: #6b332e;
+  --color-schedule-border: #3a5480;
+  --color-success: #4fd18b;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.app {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+
+/* Header */
+
+.app-header {
+  padding: 1.5rem 0 0;
+  margin-bottom: 2rem;
+}
+
+.app-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-logo {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+
+.brand h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tabs a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.tabs a:hover {
+  color: var(--color-text);
+}
+
+.tabs a.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+/* VID input */
+
+.vid-input {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.35rem 0.4rem 0.35rem 0.9rem;
+  box-shadow: var(--shadow);
+}
+
+.vid-input label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.vid-input input {
+  border: none;
+  outline: none;
+  width: 5.5rem;
+  font-size: 0.9rem;
+  padding: 0.3rem 0;
+  background: transparent;
+  color: var(--color-text);
+}
+
+.vid-input select {
+  border: none;
+  outline: none;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.2rem;
+  background: transparent;
+  color: var(--color-text);
+  border-left: 1px solid var(--color-border);
+  padding-left: 0.6rem;
+}
+
+.vid-input button {
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+}
+
+.vid-status {
+  color: var(--color-success);
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.theme-toggle {
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  box-shadow: var(--shadow);
+}
+
+.theme-toggle:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* Sections & cards */
+
+section h2 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+section h3 {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.75rem;
+}
+
+/* Day schedule */
+
+.day-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.day-toolbar-label {
+  margin-left: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: capitalize;
+}
+
+.day-nav-btn {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.schedule {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow-x: auto;
+}
+
+.schedule-ruler,
+.schedule-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  min-width: 720px;
+}
+
+.schedule-ruler {
+  padding: 0.6rem 0 0.4rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.schedule-hours {
+  position: relative;
+  height: 1rem;
+}
+
+.schedule-hours span {
+  position: absolute;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+}
+
+.schedule-hours span:first-child {
+  transform: none;
+}
+
+.schedule-row {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.schedule-body .schedule-row:last-child {
+  border-bottom: none;
+}
+
+.schedule-row-label {
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.schedule-track {
+  position: relative;
+  min-height: 54px;
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--color-border) 0,
+    var(--color-border) 1px,
+    transparent 1px,
+    transparent calc(100% / 24)
+  );
+}
+
+.schedule-block {
+  position: absolute;
+  top: 7px;
+  bottom: 7px;
+  min-width: 4px;
+  border-radius: 6px;
+  border: 1px solid var(--color-schedule-border);
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  font-size: 0.72rem;
+  line-height: 1.2;
+  padding: 0.25rem 0.45rem;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  cursor: default;
+}
+
+.schedule-block-time {
+  font-weight: 700;
+}
+
+.schedule-block-vid {
+  opacity: 0.85;
+}
+
+.schedule-block-training {
+  background: var(--color-badge-training-bg);
+  border-color: var(--color-badge-training-border);
+  color: var(--color-badge-training-fg);
+}
+
+.schedule-block-event {
+  background: var(--color-badge-event-bg);
+  border-color: var(--color-badge-event-border);
+  color: var(--color-badge-event-fg);
+}
+
+.schedule-block-exam {
+  background: var(--color-badge-exam-bg);
+  border-color: var(--color-badge-exam-border);
+  color: var(--color-badge-exam-fg);
+}
+
+.schedule-tooltip {
+  position: fixed;
+  transform: translate(-50%, calc(-100% - 12px));
+  background: var(--color-text);
+  color: var(--color-bg);
+  padding: 0.5rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+}
+
+.schedule-tooltip-below {
+  transform: translate(-50%, 12px);
+}
+
+.now-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-danger);
+  z-index: 2;
+}
+
+.now-line::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-danger);
+}
+
+/* Table */
+
+.table-wrapper {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow-x: auto;
+}
+
+.bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.bookings-table th,
+.bookings-table td {
+  padding: 0.7rem 1rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.bookings-table thead th {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.bookings-table tbody tr:not(:last-child) td {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.bookings-table tbody tr:hover {
+  background: var(--color-primary-light);
+}
+
+.bookings-table td.mono {
+  font-variant-numeric: tabular-nums;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.badge-training {
+  background: var(--color-badge-training-bg);
+  color: var(--color-badge-training-fg);
+}
+
+.badge-event {
+  background: var(--color-badge-event-bg);
+  color: var(--color-badge-event-fg);
+}
+
+.badge-exam {
+  background: var(--color-badge-exam-bg);
+  color: var(--color-badge-exam-fg);
+}
+
+.empty-state {
+  padding: 2.5rem 1rem;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.muted {
+  color: var(--color-text-muted);
+}
+
+/* Forms */
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 480px;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.booking-form label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: -0.4rem;
+}
+
+.booking-form input,
+.booking-form select {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.55rem 0.7rem;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  background: var(--color-surface);
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.vid-input input:focus {
+  outline: 2px solid var(--color-primary-light);
+  border-color: var(--color-primary);
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.25rem;
+}
+
+.form-error {
+  color: var(--color-danger);
+  background: var(--color-danger-light);
+  border-radius: 6px;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Buttons */
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+button[type='submit'] {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+button[type='submit']:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+}
+
+button[type='button'] {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+button[type='button']:hover:not(:disabled) {
+  border-color: var(--color-text-muted);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.bookings-table button {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.78rem;
+  margin-right: 0.35rem;
+}
+
+.bookings-table button:last-child {
+  border-color: var(--color-danger-light);
+  color: var(--color-danger);
+}
+
+/* Inputs outside forms (date picker) */
+
+input[type='date'] {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.9rem;
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+@media (max-width: 640px) {
+  .app {
+    padding: 0 1rem 2rem;
+  }
+  .app-header-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

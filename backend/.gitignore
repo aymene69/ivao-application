@@ -1,0 +1,12 @@
+node_modules
+dist
+*.tsbuildinfo
+
+# Keep environment variables out of version control
+.env
+
+/src/generated/prisma
+
+# SQLite database files (created locally via prisma migrate)
+*.db
+*.db-journal
